@@ -1,8 +1,8 @@
 var Metalsmith = require('metalsmith');
 var templates = require('metalsmith-templates');
-var less = require('metalsmith-less');
 var markdown = require('metalsmith-markdown');
 var stylus = require('metalsmith-stylus');
+var permalinks = require('metalsmith-permalinks');
 
 Metalsmith(__dirname)
   .use(templates({
@@ -10,6 +10,7 @@ Metalsmith(__dirname)
   }))
   .use(stylus())
   .use(markdown())
+  .use(permalinks())
   .build(function(err) {
     if (err) throw err;
   });
